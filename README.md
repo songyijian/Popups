@@ -42,7 +42,7 @@ this.close()	//关闭
     </div>
 ```
 
-*替代原生 alert
+* 替代原生 alert
 ```
 背景
     <div class="bomb_bg"></div>
@@ -58,7 +58,7 @@ this.close()	//关闭
 ```
 
 
-*替代原生 confirm
+* 替代原生 confirm
 ```
 背景
     <div class="bomb_bg"></div>
@@ -74,7 +74,7 @@ this.close()	//关闭
     </div>
 ```
 
-*替代原生 prompt
+* 替代原生 prompt
 ```
 背景
     <div class="bomb_bg"></div>
@@ -91,7 +91,7 @@ this.close()	//关闭
     </div>
 ```
 
-*替代原生 textarea
+* 替代原生 textarea
 ```
 背景
     <div class="bomb_bg"></div>
