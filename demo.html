@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>弹窗改进版本 </title>
     <link rel="stylesheet" type="text/css" href="src/bombBox.1.0.1.css" />
-    <script src="./src/BombBox.1.0.1.js"></script>
+    <script src="./src/BombBox.1.0.2.js"></script>
     <style>
         body,
         div,
@@ -45,6 +45,9 @@
     <input type="button" name="tan" id="alert" value="点击弹出框 alert" />
     <input type="button" name="tan" id="prompt" value="点击弹出框 prompt" />
     <input type="button" name="tan" id="textarea" value="点击弹出框 textarea" />
+    <input type="button" name="tan" id="sethtml" value="点击弹出框 体验：set html" />
+
+
 
     <!--
 	组件结构：	
@@ -152,6 +155,26 @@
                 'yesBtnFn': function(v) {
                     console.log(v)
                     alert("点击了确认按钮：" + v)
+                },
+                'closeFn': function() {},
+                'goFn': function() {}
+            })
+        }
+
+        document.getElementById('sethtml').onclick = function() {
+            new BombBox('编辑内容', {
+                initFn(_this) {
+                    _this.html('<p>初始化后，弹框内容被改变!!</p><button id="setbtn">替换内容为“btn set”</button>')
+                    console.log(_this)
+
+
+                    _this.bombHtml.lastChild.onclick = () => {
+                        _this.html('<pre>_this.html("xx") === _this.bombHtml.innerHTML = "XXX"</pre>')
+
+                    }
+                },
+                'yesBtnFn': function(v) {
+                    console.log(v)
                 },
                 'closeFn': function() {},
                 'goFn': function() {}

@@ -1,5 +1,5 @@
-﻿/*
-	BombBox 1.0.1  _轻量级弹窗组件
+/*
+	BombBox 1.0.2  _轻量级弹窗组件
 	作者：songyijian 
 	发布：2016.2
 
@@ -20,7 +20,7 @@
         })
 		
 		FN
-			this.html('') 	//更新内容区域信息
+			this.html('data',fn(This)) 	//更新内容区域信息,1.0.2增加回调
 			this.center()	//居中方法
 			this.close()	//关闭
 	
@@ -143,7 +143,7 @@
         this.dataJ.initFn(this);
     };
 
-    BombBox.prototype.html = function(t,fn) { this.bombHtml.innerHTML = t; if(fn)fn(this)}
+    BombBox.prototype.html = function(t, fn) { this.bombHtml.innerHTML = t; if (fn) fn(this) }
 
     BombBox.prototype.yesFn = function(This, type) {
         var _value = true;
