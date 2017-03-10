@@ -23,7 +23,6 @@
 			this.html('data',fn(This)) 	//更新内容区域信息,1.0.2增加回调
 			this.center()	//居中方法
 			this.close()	//关闭
-	
 */
 
 ! function() {
