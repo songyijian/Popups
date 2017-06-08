@@ -1,4 +1,4 @@
-BombBox 1.1.0 _轻量级弹窗组件（支持amd）  
+# BombBox 1.1.0 _轻量级弹窗组件（支持amd）  
 
 ### 更新说明：
 1.1.0优化居中方案，
@@ -8,7 +8,7 @@ BombBox 1.1.0 _轻量级弹窗组件（支持amd）
 
 ## 函数 API
  
-* 配置
+### 配置
 ```
     t，string弹框内容（`<p>xxx</p>`）
 new BombBox(t,{
@@ -29,7 +29,7 @@ new BombBox(t,{
 })
 ```
 
-* FN
+### FN
 ```
 this.html('data',fn(This))  //修改内容区域信息,回调
 this.center()               //居中方法 （1.1.0 已经没有意义）
@@ -38,7 +38,7 @@ this.show()                 //显示隐藏状态下的弹窗
 
 ```
 
-* ARR
+### ARR
 ```
 this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DOM存在并显示
 ```
@@ -47,7 +47,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
 
 ## 弹框DOM结构：
 
-* 默认常规
+### 默认常规
 ```
 背景
     <div class="bomb_bg"></div>
@@ -58,7 +58,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
     </div>
 ```
 
-* 替代原生 alert
+### 替代原生 alert
 ```
 背景
     <div class="bomb_bg"></div>
@@ -74,7 +74,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
 ```
 
 
-* 替代原生 confirm
+### 替代原生 confirm
 ```
 背景
     <div class="bomb_bg"></div>
@@ -90,7 +90,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
     </div>
 ```
 
-* 替代原生 prompt
+### 替代原生 prompt
 ```
 背景
     <div class="bomb_bg"></div>
@@ -107,7 +107,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
     </div>
 ```
 
-* 替代原生 textarea
+### 替代原生 textarea
 ```
 背景
     <div class="bomb_bg"></div>
