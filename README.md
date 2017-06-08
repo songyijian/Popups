@@ -1,9 +1,10 @@
 BombBox 1.1.0 _轻量级弹窗组件（支持amd）  
-    1.1.0优化居中方案，
-    默认css3入场动画（可配置），
-    增加initStatus:true默认初始化显示弹窗， 
-    增加form:stick（狗皮膏药模式）
 
+### 更新说明：
+1.1.0优化居中方案，
+默认css3入场动画（可配置），
+增加initStatus:true默认初始化显示弹窗， 
+增加form:stick（狗皮膏药模式）
 
 ## 函数 API
  
