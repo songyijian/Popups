@@ -13,7 +13,7 @@
     t，string弹框内容（`<p>xxx</p>`）
 new BombBox(t,{
     'initStatus':true,              //默认初始化显示弹窗，
-    'form':'',                      //默认dom动态创建删除， stick样式显示隐藏dom不会二次创建删除
+    'form':'',                      //默认dom动态创建删除， stick关闭不删除弹窗dom
     'type':'',                      //弹框类型  alert,  confirm , prompt , textarea
     'bombClass':'',                 // div class="bomb-document 这里增加一个class" >
     'center':true,                  //中间位置 (mr)
@@ -24,8 +24,10 @@ new BombBox(t,{
     'promptValue':"",               //prompt=Value
     'initFn':function(_this){},     //初始化回调
     'closeFn': function(_this){},   //关闭回调
-    'yesBtnFn':function(value){},   //点击确定按钮回调
+    'yesBtnFn':function(value){},   //点击确定按钮回调·
     'append': document.body         //插入位置
+})
+        
 })
 ```
 
@@ -58,7 +60,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
     </div>
 ```
 
-### 替代原生 alert
+### alert
 ```
 背景
     <div class="bomb_bg"></div>
@@ -74,7 +76,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
 ```
 
 
-### 替代原生 confirm
+### confirm
 ```
 背景
     <div class="bomb_bg"></div>
@@ -90,7 +92,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
     </div>
 ```
 
-### 替代原生 prompt
+### prompt
 ```
 背景
     <div class="bomb_bg"></div>
@@ -107,7 +109,7 @@ this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DO
     </div>
 ```
 
-### 替代原生 textarea
+### textarea
 ```
 背景
     <div class="bomb_bg"></div>
