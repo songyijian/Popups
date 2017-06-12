@@ -1,10 +1,10 @@
 # BombBox 1.1.0 _轻量级弹窗组件（支持amd）  
 
 ### 更新说明：
-1.1.0优化居中方案，
-默认css3入场动画（可配置），
-增加initStatus:true默认初始化显示弹窗， 
-增加form:stick（狗皮膏药模式）
+* 1.1.0优化居中方案，
+* 默认css3入场动画（.css），
+* 增加initStatus:true 默认初始化显示弹窗， 
+* 增加form:stick（狗皮膏药模式）关闭隐藏窗口不删除现有dom
 
 ## 函数 API
  
@@ -26,8 +26,6 @@ new BombBox(t,{
     'closeFn': function(_this){},   //关闭回调
     'yesBtnFn':function(value){},   //点击确定按钮回调·
     'append': document.body         //插入位置
-})
-        
 })
 ```
 
