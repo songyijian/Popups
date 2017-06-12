@@ -5,16 +5,16 @@
     github：https://github.com/songyijian/BombBox
 
     更新说明：1.1.0优化居中方案，
-          默认css3入场动画（可配置），
-          增加initStatus:true默认初始化显示弹窗， 
-          增加form:stick（狗皮膏药模式）
+          默认css3入场动画（.css），
+          增加initStatus:true 默认初始化显示弹窗， 
+          增加form:stick（狗皮膏药模式）关闭隐藏窗口不删除现有dom
 
 
     API
             t，string弹框内容（`<p>xxx</p>`）
         new BombBox(t,{
-            'initStatus':true,              //默认初始化显示弹窗，
-            'form':'',                      //默认dom动态创建删除， stick关闭不删除弹窗dom
+            'initStatus':true,              //初始化显示状态 默认显示弹窗
+            'form':'',                      //默认关闭删除dom， stick只隐藏窗口
             'type':'',                      //弹框类型  alert,  confirm , prompt , textarea
             'bombClass':'',                 // div class="bomb-document 这里增加一个class" >
             'center':true,                  //中间位置 (mr)
@@ -30,12 +30,12 @@
         })
         
         FN
-            this.html('data',fn(This))  //修改内容区域信息,回调
+            this.html('data',fn(This))  //修改内容区域（信息,回调）
             this.center()               //居中方法 （1.1.0 已经没有意义）
-            this.close('stick')         //关闭, stick隐藏 !删除，可以通过参数控制DOM的删除还是隐藏
-            this.show()                 //显示隐藏状态下的弹窗
+            this.close('stick')         //关闭, 可以传参（‘stick’）模式，不传默认是删除dom
+            this.show()                 //显示隐藏状态下的弹窗，(stick模式,initStatus:false)
 
-        ARR
+        ATTR
             this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DOM存在并显示
 */
 
@@ -46,9 +46,9 @@
         this.key = key
         this.disStatus=0;   //dom状态
         this.dataJ = { //配置参数
-            'initStatus':true,              //默认初始化显示弹窗，
-            'form':'',                      //默认dom动态创建删除， stick不对DOM删除处理
-            'type':'',                      //模式默认实时创建  alert,   confirm , prompt , textarea
+            'initStatus':true,              //初始化显示状态 默认显示弹窗
+            'form':'',                      //默认关闭删除dom， stick只隐藏窗口
+            'type':'',                      //弹框类型  alert,  confirm , prompt , textarea
             'bombClass':'',                 // div class="bomb-document 这里增加一个class" >
             'center':true,                  //中间位置 (mr)
             'bg':true,                      //是否有背景(mr)

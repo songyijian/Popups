@@ -12,8 +12,8 @@
 ```
     t，string弹框内容（`<p>xxx</p>`）
 new BombBox(t,{
-    'initStatus':true,              //默认初始化显示弹窗，
-    'form':'',                      //默认dom动态创建删除， stick关闭不删除弹窗dom
+    'initStatus':true,              //初始化显示状态 默认显示弹窗
+    'form':'',                      //默认关闭删除dom， stick只隐藏窗口
     'type':'',                      //弹框类型  alert,  confirm , prompt , textarea
     'bombClass':'',                 // div class="bomb-document 这里增加一个class" >
     'center':true,                  //中间位置 (mr)
@@ -33,17 +33,20 @@ new BombBox(t,{
 
 ### FN
 ```
-this.html('data',fn(This))  //修改内容区域信息,回调
+this.html('data',fn(This))  //修改内容区域（信息,回调）
 this.center()               //居中方法 （1.1.0 已经没有意义）
-this.close('stick')         //关闭, stick隐藏 !删除，可以通过参数控制DOM的删除还是隐藏
-this.show()                 //显示隐藏状态下的弹窗
+this.close('stick')         //关闭, 可以传参（‘stick’）模式，不传默认是删除dom
+this.show()                 //显示隐藏状态下的弹窗，(stick模式,initStatus:false)
 
 ```
 
-### ARR
+### ATTR
 ```
 this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DOM存在并显示
 ```
+
+
+
 
 
 
