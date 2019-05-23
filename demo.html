@@ -4,173 +4,45 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>弹窗改进版本 </title>
-    <link rel="stylesheet" type="text/css" href="src/bombBox.1.0.3.css" />
-    <script src="./src/BombBox.1.0.3.js"></script>
+    <link rel="stylesheet" type="text/css" href="./dist/bombBox.1.1.1.css" />
+    <script src="./dist/BombBox.1.1.1.js"></script>
     <style>
-    h2,p{margin: 0}
-    body>div{  width: 50% ; margin: 0 auto}
-        input[name="tan"]{ display: inline-block; margin:0.5rem; height:40px; background: #ccc; border: 0; padding: 0 0.5rem}
-        #pp{ border: 5px solid red; background: yellow; height: 130px; width: 130px;}
-         #pp::before{content:"11111";display: block;  position: fixed; top: 0; left:0; width: 120%; height: 120%; background:rgba(0,0,0,0.5);} 
+        *{margin: 0}
+        body{ background: #ccc;}
+        body>div{  width: 50% ; margin: 0 auto}
+        input[name="tan"]{ display: inline-block; margin:0.5rem; height:30px; background:#333; color: #FFF; border: 0; padding: 0 1rem}
     </style>
 </head>
 <body>
     <div>
-        <input type="button" name="tan" id="tan" value="常规" />
-        <input type="button" name="tan" id="confirm" value="confirm" />
-        <input type="button" name="tan" id="alert" value="alert" />
-        <input type="button" name="tan" id="prompt" value="prompt" />
-        <input type="button" name="tan" id="textarea" value="textarea" />
-        <input type="button" name="tan" id="sethtml" value="set .html()" />
-        <input type="button" name="tan" id="stick" value="form:stick 狗皮膏药模式 DOM只做样式的隐藏显示" />   
-        <input type="button" name="tan" id="initStatus" value="initStatus:false隐藏插入; 定时调用this.show（）" />    
-
-        
+        <input type="button" name="tan" id="tan" value="show1" onclick="dom1.show()" />
+        <input type="button" name="tan" id="tan" value="show2" onclick="dom2.show()" />
+        <input type="button" name="tan" id="tan" value="close1" onclick="dom1.close()" />
+        <input type="button" name="tan" id="tan" value="close2" onclick="dom2.close()" />
+        <input type="button" name="tan" id="tan" value="show> 3s> close" onclick="show_3s_close()" />
     </div>
 
-    <!-- <p id="pp">dfdfdf</p> -->
-
-
-    <!--
-	组件结构：	
-		背景
-			<div class="bomb_bg"></div>
-		弹框结构：
-			<div class="bomb_document" >
-				<big class="bomb_closebtn">按钮</big>
-				<div class="bomb_html"></div>
-			</div>
-			
-		alert:
-			<div class="alert_document">
-				<button class="bomb_yes_btn">确定</button>
-				<big class="bomb_closebtn"></big>
-				<div class="bomb_html">
-					允许在这里插入内容
-				</div>
-			</div>
-
-		confirm:
-			<div class="confirm_document">
-				<button class="bomb_no_btn">取消</button>
-				<button class="bomb_yes_btn">确定</button>
-				<big class="bomb_closebtn"></big>
-				<div class="bomb_html">
-						允许在这里插入内容 
-				</div>
-			</div>
-		
-		prompt:
-			<div class="prompt_document">
-				<button class="bomb_no_btn">取消</button>
-				<button class="bomb_yes_btn">确定</button>
-				<big class="bomb_closebtn"></big>
-				<div class="bomb_html">
-						 允许在这里插入内容 
-					<input class="prompt_input" type="text">
-				</div>
-			</div>
-		textarea:
-			 <div class="textarea_document">
-				<button class="bomb_no_btn">取消</button>
-				<button class="bomb_yes_btn">确定</button>
-				<big class="bomb_closebtn"></big>
-				<div class="bomb_html">
-						 允许在这里插入内容 
-					<textarea class="textarea_input"></textarea>
-				</div>
-			</div>
-	-->
-
-
-
-
-    <script type="text/javascript">
-        var cc = '<h2>标题部分</h2><p>主体内容可以是hml</p>';
-
-
-        function on(n,fn){
-            document.getElementById(n).onclick = fn
+<script type="text/javascript">
+    var config = {
+            'initShow': false,                //true=new立刻展示 | false=调用.show()显示
+            'type': '',                      //弹框类型  alert,  confirm , prompt , textarea
+            'bombClass': '',                 // bomb-document增加class，同时作用背景
+            'bg': false,                      //是否有背景(mr)
+            'closeHtml': false,              //关闭按钮的内容
+            'timeOut': 0,                    //定时关闭
+            'initFn': function (_this) { },  //初始化后fun
+            'showFn': function (_this) { },    //展示回调
+            'closeFn': function (_this) { }, //关闭回调
+            'append': document.body          //插入位置
         }
-
-        on('tan',function() {
-            new BombBox(cc, {
-                'closeHtml': '',
-                'closeFn': function() {
-                    alert('关闭了')
-                },
-                'initFn': function() {
-                    alert('初始化完成')
-                }
-            })
-        })
-        on('confirm',function() {
-            new BombBox(cc, {
-                'type': 'confirm',
-                'yesBtnFn': function(v) {alert("点击了确认按钮：" + v)}
-  
-            })
-        })
-        on('alert',function() {
-            new BombBox(cc, {
-                'type': 'alert',
-                'yesBtnFn': function(v) {alert("点击了确认按钮：" + v)}
-            })
-        })
-        on('prompt',function() {
-            new BombBox(cc, {
-                'type': 'prompt',
-                'promptValue': "默认值",
-                'yesBtnFn': function(v) {alert("点击了确认按钮：" + v)}
-            })
-        })
-        on('textarea',function() {
-            new BombBox('<h2>编辑内容</h2>', {
-                'type': 'textarea',
-                'promptValue': "默认值",
-                'yesBtnFn': function(v) {alert("点击了确认按钮：" + v)}
-            })
-        })
-        on('sethtml',function() {
-            new BombBox('编辑内容', {
-                initFn(_this) {
-                    _this.html('<p>这段内容是初始化后，动态修改添加的!!</p><button id="setbtn">点击再替换一下</button>')
-
-                    _this.bombHtml.lastChild.onclick = () => {
-                        _this.html('<pre>_this.html("xx") === _this.bombHtml.innerHTML = "XXX"</pre>')
-                    }
-                },
-                'yesBtnFn': function(v) {
-                    console.log(v)
-                }
-            })
-        })
-
-
-        var b;
-        on('stick',()=>{
-            b=new BombBox('<h2>form:stick 狗皮膏药模式 DOM只做样式的隐藏显示</h2>', {
-                form:'stick',
-                initFn(_this) {},
-            })
-        })
-
-        var c;
-        on('initStatus',()=>{
-            c=new BombBox('<h2>initStatus:false; 隐藏插入倒计时 this.show（）</h2>', {
-                initStatus:false,
-                initFn(_this) {},
-            })
-
-            setTimeout(()=>{ c.show()},1500)
-        })
-
-
-
-
-    </script>
-
-
+    var dom1 = new BombBox('内容1', config)
+    var dom2 = new BombBox('内容2', config)
+   
+    function show_3s_close(){
+        config.timeOut = 2000;
+        config.initShow = true;
+        new BombBox(' 3秒后关闭 ', config)
+    }
+</script>
 </body>
-
 </html>

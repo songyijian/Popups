@@ -5,28 +5,33 @@
 * 默认css3入场动画（.css），
 * 增加initStatus:true 默认初始化显示弹窗， 
 * 增加form:stick（狗皮膏药模式）关闭隐藏窗口不删除现有dom
+* 1.1.1 {t} 支持dom对象,为了适应vue插槽
+* 1.1.1 bombClass="" 同时作用背景
+
 
 ## 函数 API
  
 ### 配置
 ```
-    t，string弹框内容（`<p>xxx</p>`）
-new BombBox(t,{
-    'initStatus':true,              //初始化显示状态 默认显示弹窗
-    'form':'',                      //默认关闭删除dom， stick只隐藏窗口
-    'type':'',                      //弹框类型  alert,  confirm , prompt , textarea
-    'bombClass':'',                 // div class="bomb-document 这里增加一个class" >
-    'center':true,                  //中间位置 (mr)
-    'bg':true,                      //是否有背景(mr)
-    'closeHtml':false,              //关闭按钮的内容
-    'timeOut':0,                    //定时关闭
-    "textareaValue":"",             //textarea = value
-    'promptValue':"",               //prompt=Value
-    'initFn':function(_this){},     //初始化回调
-    'closeFn': function(_this){},   //关闭回调
-    'yesBtnFn':function(value){},   //点击确定按钮回调·
-    'append': document.body         //插入位置
-})
+new BombBox(
+    t,  //{string | dom} t string弹框内容（`<p>xxx</p>` | <p>xxx</p>）
+    {
+        'initStatus':true,              //初始化显示状态 默认显示弹窗
+        'form':'',                      //默认关闭删除dom， stick只隐藏窗口
+        'type':'',                      //弹框类型  alert,  confirm , prompt , textarea
+        'bombClass':'',                 // bomb-document增加class，同时作用背景
+        'center':true,                  //中间位置 (mr)
+        'bg':true,                      //是否有背景(mr)
+        'closeHtml':false,              //关闭按钮的内容
+        'timeOut':0,                    //定时关闭
+        "textareaValue":"",             //textarea = value
+        'promptValue':"",               //prompt=Value
+        'initFn':function(_this){},     //初始化回调
+        'closeFn': function(_this){},   //关闭回调
+        'yesBtnFn':function(value){},   //点击确定按钮回调·
+        'append': document.body         //插入位置
+    }
+)
 ```
 
 ### FN
@@ -40,12 +45,8 @@ this.show()                 //显示隐藏状态下的弹窗，(stick模式,init
 
 ### ATTR
 ```
-this.disStatus  //组件状态 0_DOM不存在 1_DOM存在处于隐藏状态 2_DOM存在并显示
+this.disStatus  //组件状态 -1_DOM不存在 0虚拟dom还没插入渲染  1_DOM存在处于隐藏状态 2_DOM存在并显示
 ```
-
-
-
-
 
 
 ## 弹框DOM结构：
