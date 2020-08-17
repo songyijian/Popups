@@ -16,7 +16,7 @@
 
 
 /*模拟原生各种 样式*/
-.alert_document,.confirm_document,.prompt_document{height:170px; width:350px; background:#fff; position:fixed; top:0; left:0; z-index:1001;}
+/* .alert_document,.confirm_document,.prompt_document{height:170px; width:350px; background:#fff; position:fixed; top:0; left:0; z-index:1001;}
 .alert_document .bomb_html,.confirm_document .bomb_html,.prompt_document .bomb_html{text-indent: 1rem; line-height: 50px; height: 100%; width: 100%}
 .bomb_yes_btn,.bomb_no_btn{ display:inline-block; height:30px; width:100px; position:absolute; z-index: 2; bottom:15px; right:128px;}
 .bomb_no_btn{ right:15px;}
@@ -27,4 +27,4 @@
 .bomb_html_body_box{ height: 500px; overflow-x:hidden; overflow-y: scroll;}
 .textarea_document{height:440px; width:600px; background:#fff; position:fixed; top:0; left:0; z-index:1001;}
 .textarea_document .bomb_html{text-indent: 1rem; line-height: 50px; height: 100%; width: 100%}
-.textarea_document .textarea_input{ height:290px; width:545px; margin:20px; padding: 0.5rem;}
+.textarea_document .textarea_input{ height:290px; width:545px; margin:20px; padding: 0.5rem;} */
