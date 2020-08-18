@@ -2,47 +2,51 @@
 <html id="ne_wrap">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>弹窗改进版本 </title>
-    <link rel="stylesheet" type="text/css" href="./src/BombBox.2.0.0.css" />
-    <script src="./src/BombBox.2.0.0.js"></script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>弹窗改进版本 </title>
+  <link rel="stylesheet" type="text/css" href="./src/BombBox.2.0.0.css" />
+  <script src="./src/BombBox.2.0.0.js"></script>
 
-    <style>
-        *{margin: 0}
-        html,body{ height: 100%; width: 100%;}
-    </style>
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+    }
+
+  </style>
 </head>
-<body>
-    <div>
-        <input type="button" name="tan" id="tan" value="show1" onclick="dom1.show()" />
-        <input type="button" name="tan" id="tan" value="close1" onclick="dom1.close()" />
-        <input type="button" name="tan" id="tan" value="show> 3s> close" onclick="show_3s_close()" />
-    </div>
 
-<script type="text/javascript">
-    var config = {
-            'initShow': true,                //true=new立刻展示 | false=调用.show()显示
-            'type': '',                      //弹框类型  alert,  confirm , prompt , textarea
-            'bombClass': '',                 // bomb-document增加class，同时作用背景
-            'bg': false,                      //是否有背景(mr)
-            'closeHtml': false,              //关闭按钮的内容
-            'timeOut': 0,                    //定时关闭
-            'creact': function (_this) {
-              console.log(_this)
-            }, //创建回调（未插入）
-            'show': function (_this) {}, //显示回调
-            'close': function (_this) {
-              console.log(_this)
-            }, //关闭回调（从插入位置删除，但内存中存在）
-            'append': document.body          //插入位置
-        }
-    var dom1 = new BombBox('内容1', config)
-   
-    // function show_3s_close(){
-    //     config.timeOut = 2000;
-    //     config.initShow = true;
-    //     new BombBox(' 3秒后关闭 ', config)
-    // }
-</script>
+<body>
+  <div>
+    <input type="button" value="show1" onclick="box.show()" />
+    <input type="button" value="close1" onclick="box.close()" />
+
+    <input type="button" value="close1" onclick="box.close()" />
+
+  </div>
+
+  <script type="text/javascript">
+    var box = new BombBox('内容', {
+      'initShow': true, 
+      'type': '', 
+      'bombClass': 'a', 
+      // 'bg': false,
+      'closeHtml': false, 
+      // 'timeOut': 2000, 
+      'creact': function (_this) {
+        console.log(_this)
+      }, 
+      'show': function (_this) {}, 
+      'close': function (_this) {
+        console.log(_this)
+      }, 
+      'append': document.body 
+    })
+
+
+
+  </script>
 </body>
+
 </html>
