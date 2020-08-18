@@ -15,7 +15,7 @@ API
       timeOut: 0,           // 定时关闭
       append: document.body, // 插入位置
       // 回调函数(this)=>
-      creact: ()=>{},       // 创建回调（未插入）
+      creat: ()=>{},       // 创建回调（未插入）
       show: ()=>{},         // 显示回调
       close: ()=>{},        // 关闭回调（从插入位置删除，但内存中存在）
     }
@@ -48,7 +48,7 @@ class BombBox{
       timeOut: 0,           // 定时关闭
       append: document.body, // 插入位置
       // 回调函数(this)=>
-      creact: ()=>{},       // 创建回调（未插入）
+      creat: ()=>{},       // 创建回调（未插入）
       show: ()=>{},         // 显示回调
       close: ()=>{},        // 关闭回调（从插入位置删除，但内存中存在）
     },config);
@@ -78,7 +78,7 @@ class BombBox{
       this.close()
     },false)
 
-    this.config.creact(this)
+    this.config.creat(this)
 
     this.config.initShow && this.show()
   }
