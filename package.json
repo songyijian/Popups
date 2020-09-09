@@ -1,12 +1,13 @@
 {
-  "name": "bombbox",
-  "description": "BombBox _轻量级弹窗组件",
+  "name": "popups",
+  "description": "_轻量级弹窗组件",
   "main": "./dist/index.js",
   "keywords": [
-    "toast",
+    "popups",
+    "popup",
     "bomb",
     "box",
-    "Popup",
+    "toast",
     "message",
     "alert",
     "Notification"
