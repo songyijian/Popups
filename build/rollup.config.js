@@ -3,16 +3,19 @@ const babel = require('rollup-plugin-babel');
 const commonjs = require('rollup-plugin-commonjs');
 const json = require('rollup-plugin-json');
 const resolve = require('rollup-plugin-node-resolve');
+// const uglify = require("rollup-plugin-uglify");
+// import { uglify } from "rollup-plugin-uglify";
 const package = require('../package');
 
 const resolveFile = function(...dir){return path.join(__dirname,`../`, ...dir)};
-const moduleName = 'DomObserver'
 const pname = package.name
+const moduleName = 'Popups'
 const pversion = package.version
 
 
 const plugins = [
   commonjs(),
+  // uglify(),
   json(),
   resolve(),
   babel({
@@ -24,11 +27,12 @@ const plugins = [
 
 
 module.exports = [
+
   {
     input: resolveFile('./src/index.js'),
     output: [
       {
-        file: resolveFile(`dist/index.js`),
+        file: resolveFile(`dist/${pname}.cjs.js`),
         format: 'cjs',
       }
     ], 
@@ -49,11 +53,19 @@ module.exports = [
     input: resolveFile('./src/index.js'),
     output: [
       {
-        file: resolveFile(`dist/${pname}.iife.${pversion}.js`),
+        file: resolveFile(`dist/${pname}.iife.js`),
         name:moduleName,
         format: 'iife',
       }
     ], 
     plugins
-  }
+  },
+    {
+      input: resolveFile('./src/index.js'),
+      output: [{
+        file: resolveFile(`dist/index.js`),
+        format: 'es',
+      }],
+      plugins
+    },
 ]

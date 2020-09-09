@@ -31,7 +31,7 @@ API
 */
 
 
-class BombBox{
+export default class BombBox{
   constructor(contentString, config = {}){
     if(typeof contentString !== 'string'){
       console.error('[BombBox] contentString error')
@@ -121,5 +121,3 @@ class BombBox{
   }
 }
 
-
-window.BombBox = BombBox

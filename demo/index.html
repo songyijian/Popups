@@ -1,125 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html id="ne_wrap">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>My-App</title>
-  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
-  <script src="../dist/domobserver.umd.js"></script>
-  <!-- <link rel="tag" type='text/html' href="lessCss.less" /> -->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>弹窗改进版本 </title>
+  <!-- <link rel="stylesheet" type="text/css" href="./src/BombBox.2.0.0.css" /> -->
+  <!-- <script src="./src/BombBox.2.0.0.js"></script> -->
+  <script src="../dist/popups.umd.js"></script>
+
   <style>
-    partname{
-      border: 3px solid #000;
-      overflow: hidden;
-      display: block;
-      margin: 2rem;
+    html,
+    body {
+      height: 100%;
+      width: 100%;
     }
+
   </style>
 </head>
 
 <body>
-  <div _tag data-props="1" title="1" >
-    <item title='1'> 自定义标签的改变 </item>
-    <p data-props="1" is=""> p 属性修改对象 </p>
-    <ul>
-      <!-- <li></li> -->
-      <u></u>
-      <!-- <a></a> -->
-    </ul>
+  <div>
+    <input type="button" value="show1" onclick="box.show()" />
+    <input type="button" value="close1" onclick="box.close()" />
+
+    <input type="button" value="close1" onclick="box.close()" />
+
   </div>
+
+  <script type="text/javascript">
+
+  console.log(Popups)
+
+  new Popups('1111')
   
-  <button id="adddom"> add dom </button>
-  <button id="rmdom"> rm dom </button>
-  <button id='rmLi'> rm all list </button>
-  <button id='setprops'> set data-props </button>
-  <button id='disconnect'> disconnect  </button>
-  <button id='itemAttrset'> 自定义标签 item Attr set  </button>
-  <!-- <button id='update'> update  </button> -->
-
-  <script>
-    // 会在这里注入一个domRoot变量， 指向dom的根
-    var domRoot = document//domRoot || document.querySelector('[_tag]')
-    var s = document.querySelector.bind(document)
-
-    DomObserver.config = {
-      attributes: true, 
-      attributeOldValue:true,
-      childList: true,
-      subtree:true,
-      characterData: true,
-
-      // attrTagFilter: ['p','item'], // 需要观察的特定标签的属性 ['p','div']些标签的属性
-      rmTagFilter:['a'],
-      rmNodesFilter:[$('u')[0]],
-      // addTagFilter:['a'], //添加的标签类型，添加不支持addNodesFilter
-
-    }
-    
-    var dos =  new DomObserver(domRoot)
-    dos.addChildList(function(a){
-      console.log('add',a);
-    })
-    .rmChildList(function(a){
-      console.log('rm-------',a);
-    })
-    .childList(function(a){
-      console.log('childList',a);
-    })
-    .attributes(function(mitem ,key, val){
-      console.log('attributes',mitem.target , mitem.target === s('p'));
-    })
-    .change(function(a){
-      console.log('change',a);
+    var box = new Popups('内容', {
+      'initShow': true, 
+      'type': '', 
+      'bombClass': 'a', 
+      // 'bg': false,
+      'closeHtml': false, 
+      // 'timeOut': 2000, 
+      'creat': function (_this) {
+        console.log(_this)
+      }, 
+      'show': function (_this) {}, 
+      'close': function (_this) {
+        console.log(_this)
+      }, 
+      'append': document.body 
     })
 
-
-
-
-
-    $('#adddom').click(function(){
-      $('ul').append('<li>')
-    })
-
-    $('#rmdom').click(function(){
-      $('ul li:first').remove()
-    })
-
-    $('#rmLi').click(function(){
-      // $(domRoot).remove()
-      $('ul').html('')
-    })
-
-    $('#disconnect').click(function(){
-      dos.disconnect()
-    })
-
-    $('#observe').click(function(){
-      dos.observe()
-    })
-
-    // $('#update').click(function(){
-    //   // console.log(dos);
-    // })
-
-    var ns = 1
-    $('#setprops').click(function(){
-      ns++
-      // domRoot.dataset.props = ns
-      $('p')[0].dataset.props = ns
-      // $('p').attr('is',ns)
-      $('item')[0].title = ns
-    })
-
-    $('#itemAttrset').click(function(){
-      ns++
-      $('item')[0].title = ns //.attr('title',ns)
-    })
 
 
   </script>
-
 </body>
 
 </html>

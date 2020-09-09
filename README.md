@@ -5,12 +5,40 @@
 精简代码，只保留核心功能，用es6 class重构
 
 
+
+
+
+## 安装
+```
+// npm 
+npm install popupsjs
+
+// yarn
+yarn add popupsjs
+
+// Browserify https://github.com/songyijian/DragDOM
+<script src="../dist/popupsjs.iife.js"></script> 
+```
+
+
+## 快速上手 
+
+```
+// es2015+
+import DragDOM from 'popupsjs'
+
+new DragDOM(el,{config}) 
+```
+
+
+
+
 ## 函数 API
 
 ```
 
 API
-  new BombBox(
+  new Popups(
     contentString,    // 弹框内容 `<p>xxx</p>`
     {
       initShow: true,       // 初始化显示状态 默认显示弹窗
