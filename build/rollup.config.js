@@ -68,7 +68,7 @@ module.exports = [
   {
     input: resolveFile('./src/index.js'),
     output: [{
-      file: resolveFile(`dist/${name}.cjs.js`),
+      file: resolveFile(`dist/index.js`),
       format: 'cjs',
       banner,
     }],
@@ -94,13 +94,13 @@ module.exports = [
     }],
     plugins
   },
-  {
-    input: resolveFile('./src/index.js'),
-    output: [{
-      file: resolveFile(`dist/index.js`),
-      format: 'es',
-      banner,
-    }],
-    plugins
-  },
+  // {
+  //   input: resolveFile('./src/index.js'),
+  //   output: [{
+  //     file: resolveFile(`dist/index.js`),
+  //     format: 'es',
+  //     banner,
+  //   }],
+  //   plugins
+  // },
 ]

@@ -2,7 +2,7 @@
   "name": "popupsjs",
   "description": "_轻量级弹窗组件",
   "main": "./dist/index.js",
-  "style": "./dist/style.css",
+  "style": "./dist/index.css",
   "keywords": [
     "popups",
     "popupsjs",

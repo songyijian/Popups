@@ -4,9 +4,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>弹窗改进版本 </title>
-  <!-- <link rel="stylesheet" type="text/css" href="./src/BombBox.2.0.0.css" /> -->
+  <link rel="stylesheet" type="text/css" href="../dist/index.css" />
   <!-- <script src="./src/BombBox.2.0.0.js"></script> -->
-  <script src="../dist/popups.umd.js"></script>
+  <script src="../dist/popupsjs.iife.js"></script>
 
   <style>
     html,
@@ -15,6 +15,8 @@
       width: 100%;
     }
 
+    .bomb_document.a{ border: 1px solid red;}
+
   </style>
 </head>
 
@@ -22,34 +24,30 @@
   <div>
     <input type="button" value="show1" onclick="box.show()" />
     <input type="button" value="close1" onclick="box.close()" />
-
-    <input type="button" value="close1" onclick="box.close()" />
-
+    <input type="button" value="更新内容" onclick="box.html('更新内容----')" />
   </div>
 
   <script type="text/javascript">
 
-  console.log(Popups)
+  // console.log(Popups)
+  // new Popups('1111')
 
-  new Popups('1111')
-  
-    var box = new Popups('内容', {
-      'initShow': true, 
-      'type': '', 
-      'bombClass': 'a', 
-      // 'bg': false,
-      'closeHtml': false, 
-      // 'timeOut': 2000, 
-      'creat': function (_this) {
-        console.log(_this)
-      }, 
-      'show': function (_this) {}, 
-      'close': function (_this) {
-        console.log(_this)
-      }, 
-      'append': document.body 
-    })
-
+  var box = new Popups('内容', {
+    'initShow': false, 
+    'type': '', 
+    'bombClass': 'a', 
+    'bg': false,
+    'closeHtml': false, 
+    // 'timeOut': 2000, 
+    'creat': function (_this) {
+      console.log(_this)
+    }, 
+    'show': function (_this) {}, 
+    'close': function (_this) {
+      console.log(_this)
+    }, 
+    'append': document.body 
+  })
 
 
   </script>

@@ -11,3 +11,4 @@ demo/
 src/
 dist/*
 !/dist/index.js
+!/dist/index.css

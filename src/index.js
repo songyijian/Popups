@@ -1,6 +1,6 @@
 ﻿import './style.scss'
 
-class Popups{
+class Popups {
   constructor(contentString, config = {}){
     if(typeof contentString !== 'string'){
       console.error('[BombBox] contentString error')
@@ -89,5 +89,7 @@ class Popups{
     this.updateHtml(t)
   }
 }
+
+
 
 export default Popups;
