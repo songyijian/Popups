@@ -1,10 +1,5 @@
 # popupsjs _轻量级弹窗组件
-之前的BombBox包名改为 popupsjs
-
-### 更新说明：
-精简代码，只保留核心功能，用es6 class重构
-
-
+> 之前的BombBox包名改为 popupsjs, 发布到npm上
 
 
 
@@ -38,7 +33,6 @@ new Popups(el,{config})
 ## 函数 API
 
 ```
-
 API
   new Popups(
     contentString,    // 弹框内容 `<p>xxx</p>`
