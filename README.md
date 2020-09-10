@@ -17,7 +17,8 @@ npm install popupsjs
 yarn add popupsjs
 
 // Browserify https://github.com/songyijian/Popups.git
-<script src="../dist/popups.iife.js"></script> 
+<script src="../dist/popupsjs.iife.js"></script>
+<link rel="stylesheet" type="text/css" href="../dist/index.css"/>
 ```
 
 
@@ -25,7 +26,8 @@ yarn add popupsjs
 
 ```
 // es2015+
-import Popups from 'popupsjs'
+import Popups from "popupsjs";
+import "popupsjs/dist/index.css";
 
 new Popups(el,{config}) 
 ```
@@ -42,7 +44,7 @@ API
     contentString,    // 弹框内容 `<p>xxx</p>`
     {
       initShow: true,       // 初始化显示状态 默认显示弹窗
-      bombClass: 'a',        // 增加class空间, bg & bomb_document
+      addClass: 'a',        // 增加class空间, bg & bomb_document
       bg: true,             // 是否有背景
       closeHtml: false,     // 关闭按钮的内容
       timeOut: 0,           // 定时关闭
@@ -76,6 +78,6 @@ API
     <div class="bomb_html">内容1</div>
   </div>
 
-bombClass 
+addClass 
   同时追加 bomb_bg.a & bomb_document.a
 ```

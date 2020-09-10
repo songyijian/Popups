@@ -9,7 +9,7 @@ API
     contentString,    // 弹框内容 `<p>xxx</p>`
     {
       initShow: true,       // 初始化显示状态 默认显示弹窗
-      bombClass: 'a',        // 增加class空间, bg & bomb_document
+      addClass: 'a',        // 增加class空间, bg & bomb_document
       bg: true,             // 是否有背景
       closeHtml: false,     // 关闭按钮的内容
       timeOut: 0,           // 定时关闭
@@ -42,7 +42,7 @@ export default class BombBox{
 
     this.config = Object.assign({
       initShow: true,       // 初始化显示状态 默认显示弹窗
-      bombClass: '',        // 增加class空间, bg & bomb_document
+      addClass: '',        // 增加class空间, bg & bomb_document
       bg: true,             // 是否有背景
       closeHtml: false,     // 关闭按钮的内容
       timeOut: 0,           // 定时关闭
@@ -65,13 +65,13 @@ export default class BombBox{
     this.bombHtml.className = 'bomb_html';
     this.updateHtml(this.t)
 
-    this.bombDocument.className = 'bomb_document '+ this.config.bombClass;
+    this.bombDocument.className = 'bomb_document '+ this.config.addClass;
     this.bombDocument.appendChild(this.bombClose);
     this.bombDocument.appendChild(this.bombHtml);
 
     if (this.config.bg) {
       this.bombBg = document.createElement('div');
-      this.bombBg.className = 'bomb_bg '+ this.config.bombClass;
+      this.bombBg.className = 'bomb_bg '+ this.config.addClass;
     };
 
     this.bombClose.addEventListener('click',(params) => {

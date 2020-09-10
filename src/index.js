@@ -3,21 +3,20 @@
 class Popups {
   constructor(contentString, config = {}){
     if(typeof contentString !== 'string'){
-      console.error('[BombBox] contentString error')
+      console.error('[Popups] contentString error')
       return
     }
-    this.t = contentString; //内容	
-    this.live = 0;   // 0 = dom不存在 | 1=创建并插入了指定位置
-    this.config = Object.assign({ //配置参数
-      'initShow': true, //初始化显示状态 默认显示弹窗
-      'bombClass': '', // 增加一个class
-      'bg': true, //是否有背景
-      'closeHtml': false, //关闭按钮的内容
-      'timeOut': 0, //定时关闭
-      'creact': function (_this) {}, //创建回调（未插入）
-      'show': function (_this) {}, //显示回调
-      'close': function (_this) {}, //关闭回调（从插入位置删除，但内存中存在）
-      'append': document.body //插入位置
+    this.config = Object.assign({
+      initShow: true,       // 初始化显示状态 默认显示弹窗
+      addClass: '',        // 增加class空间, bg & bomb_document
+      bg: true,             // 是否有背景
+      closeHtml: false,     // 关闭按钮的内容
+      timeOut: 0,           // 定时关闭
+      append: document.body, // 插入位置
+      // 回调函数(this)=>
+      creat: ()=>{},       // 创建回调（未插入）
+      show: ()=>{},         // 显示回调
+      close: ()=>{},        // 关闭回调（从插入位置删除，但内存中存在）
     },config);
 
     this._init_();
@@ -32,7 +31,7 @@ class Popups {
     this.bombHtml.className = 'bomb_html';
     this.updateHtml(this.t)
 
-    this.bombDocument.className = 'bomb_document '+ this.config.bombClass;
+    this.bombDocument.className = 'bomb_document '+ this.config.addClass;
     this.bombDocument.appendChild(this.bombClose);
     this.bombDocument.appendChild(this.bombHtml);
 

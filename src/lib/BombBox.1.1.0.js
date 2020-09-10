@@ -16,7 +16,7 @@
             'initStatus':true,              //初始化显示状态 默认显示弹窗
             'form':'',                      //默认关闭删除dom， stick只隐藏窗口
             'type':'',                      //弹框类型  alert,  confirm , prompt , textarea
-            'bombClass':'',                 // div class="bomb-document 这里增加一个class" >
+            'addClass':'',                 // div class="bomb-document 这里增加一个class" >
             'center':true,                  //中间位置 (mr)
             'bg':true,                      //是否有背景(mr)
             'closeHtml':false,              //关闭按钮的内容
@@ -49,7 +49,7 @@
             'initStatus':true,              //初始化显示状态 默认显示弹窗
             'form':'',                      //默认关闭删除dom， stick只隐藏窗口
             'type':'',                      //弹框类型  alert,  confirm , prompt , textarea
-            'bombClass':'',                 // div class="bomb-document 这里增加一个class" >
+            'addClass':'',                 // div class="bomb-document 这里增加一个class" >
             'center':true,                  //中间位置 (mr)
             'bg':true,                      //是否有背景(mr)
             'closeHtml':false,              //关闭按钮的内容
@@ -150,7 +150,7 @@
 
         this.bombDocument.appendChild(this.bombClose);
         this.bombDocument.appendChild(this.bombHtml);
-        if (this.dataJ.bombClass) { this.bombDocument.className += " " + this.dataJ.bombClass; }
+        if (this.dataJ.addClass) { this.bombDocument.className += " " + this.dataJ.addClass; }
 
         if (this.dataJ.bg) {
             this.bombBg = document.createElement('div');
