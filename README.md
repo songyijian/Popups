@@ -16,8 +16,8 @@ npm install popupsjs
 // yarn
 yarn add popupsjs
 
-// Browserify https://github.com/songyijian/DragDOM
-<script src="../dist/popupsjs.iife.js"></script> 
+// Browserify https://github.com/songyijian/Popups.git
+<script src="../dist/popups.iife.js"></script> 
 ```
 
 
@@ -25,9 +25,9 @@ yarn add popupsjs
 
 ```
 // es2015+
-import DragDOM from 'popupsjs'
+import Popups from 'popupsjs'
 
-new DragDOM(el,{config}) 
+new Popups(el,{config}) 
 ```
 
 

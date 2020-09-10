@@ -1,4 +1,6 @@
-﻿class Popups{
+﻿import './style.scss'
+
+class Popups{
   constructor(contentString, config = {}){
     if(typeof contentString !== 'string'){
       console.error('[BombBox] contentString error')
@@ -17,9 +19,6 @@
       'close': function (_this) {}, //关闭回调（从插入位置删除，但内存中存在）
       'append': document.body //插入位置
     },config);
-
-
-    // console.log(this.config)
 
     this._init_();
   }

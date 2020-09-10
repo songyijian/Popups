@@ -1,4 +1,5 @@
-// process.env.NODE_ENV = 'production';
+process.env.NODE_ENV = 'production';
+
 const { uglify } = require('rollup-plugin-uglify');
 const configList = require('./rollup.config');
 const replace = require('rollup-plugin-replace');
