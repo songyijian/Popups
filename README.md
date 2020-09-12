@@ -1,7 +1,5 @@
 # popupsjs _轻量级弹窗组件
-> 3.1.0 修复部分bug, 调整部分api和css classname 
-> 之前的BombBox包名改为 popupsjs, https://github.com/songyijian/Popups/tree/master/src/lib
-
+> 3.1.0 修复部分bug, 调整部分api和css classname  
 
 
 ## 安装
@@ -23,7 +21,7 @@ yarn add popupsjs
 ```
 // es2015+
 import Popups from "popupsjs";
-import "popupsjs/dist/index.css";  // 注意关闭webpack css， exclude: /node_modules/
+import "popupsjs/dist/index.css";  // 注意：使用webpack关闭css exclude: /node_modules/
 
 new Popups(el,{config}) 
 ```
