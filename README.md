@@ -1,5 +1,5 @@
 # popupsjs _轻量级弹窗组件
-> 3.1.0+ 修复部分bug, 调整部分api和css classname  
+> 3.1.0+ 修复bug, 调整api和className
 
 
 ## 安装
