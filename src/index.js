@@ -1,22 +1,24 @@
 ﻿import './style.scss'
 
-class Popups {
+class Popups{
   constructor(contentString, config = {}){
     if(typeof contentString !== 'string'){
       console.error('[Popups] contentString error')
       return
     }
+    this.t = contentString; // 内容	
+    this.live = 0;          // 0 = dom不存在 | 1=创建并插入了指定位置
+
     this.config = Object.assign({
       initShow: true,       // 初始化显示状态 默认显示弹窗
-      addClass: '',        // 增加class空间, bg & bomb_document
+      addClass: '',         // 增加class空间, bg & popups-document
       bg: true,             // 是否有背景
       closeHtml: false,     // 关闭按钮的内容
       timeOut: 0,           // 定时关闭
       append: document.body, // 插入位置
-      // 回调函数(this)=>
-      creat: ()=>{},       // 创建回调（未插入）
-      show: ()=>{},         // 显示回调
-      close: ()=>{},        // 关闭回调（从插入位置删除，但内存中存在）
+      created: function(){},    // 创建回调未插入 // (this)=>{}
+      show: function(){},       // 显示回调
+      close: function(){},      // 关闭回调（从插入位置删除，但内存中存在）
     },config);
 
     this._init_();
@@ -26,42 +28,42 @@ class Popups {
     this.bombDocument = document.createElement('div');
     this.bombClose = document.createElement('big');
     this.bombHtml = document.createElement('div');
-    this.bombClose.className = 'bomb_closebtn';
+    this.bombClose.className = 'popups-closebtn';
     if (this.config.closeHtml) { this.bombClose.innerHTML = this.config.closeHtml; }
-    this.bombHtml.className = 'bomb_html';
+    this.bombHtml.className = 'popups-html';
     this.updateHtml(this.t)
 
-    this.bombDocument.className = 'bomb_document '+ this.config.addClass;
+    this.bombDocument.className = 'popups-document '+ this.config.addClass;
     this.bombDocument.appendChild(this.bombClose);
     this.bombDocument.appendChild(this.bombHtml);
 
     if (this.config.bg) {
       this.bombBg = document.createElement('div');
-      this.bombBg.className = 'bomb_bg';
+      this.bombBg.className = 'popups-bg '+ this.config.addClass;
     };
 
-    this.bombClose.addEventListener('click',(params) => {
-      this.close()
+    const that = this
+    this.bombClose.addEventListener('click',function(params) {
+      that.close.call(that, that)
     },false)
 
-    this.config.creact(this)
-
-    this.config.initShow && this.show()
+    this.config.created.call(this,this)
+    this.config.initShow && this.show.call(this,this)
   }
 
   show () {
     if(this.live){ return }
+    const that = this
+
     this.live = 1;
     this.config.append.appendChild(this.bombDocument);
     this.config.bg && this.config.append.appendChild(this.bombBg);
-
     if (this.config.timeOut > 0){
-      setTimeout(() => {
-        this.close()
+      setTimeout(function (params) {
+        that.close.call(that, this)
       }, this.config.timeOut);
     }
-
-    this.config.show(this)
+    this.config.show.call(this,this)
     return this;
   }
 
@@ -70,12 +72,10 @@ class Popups {
       this.live = 0;
       this.config.append.removeChild(this.bombDocument);
       this.config.bg && this.config.append.removeChild(this.bombBg);
-      
-      this.config.close(this)
+      this.config.close.call(this,this)
     }
     return this;
-  };
-
+  }
 
   updateHtml(t,fn) { 
     this.t = t
@@ -90,5 +90,4 @@ class Popups {
 }
 
 
-
-export default Popups;
+export default Popups

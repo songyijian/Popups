@@ -1,5 +1,6 @@
 # popupsjs _轻量级弹窗组件
-> 之前的BombBox包名改为 popupsjs, 发布到npm上
+> 3.1.0 修复部分bug, 调整部分api和css classname 
+> 之前的BombBox包名改为 popupsjs, https://github.com/songyijian/Popups/tree/master/src/lib
 
 
 
@@ -17,12 +18,12 @@ yarn add popupsjs
 ```
 
 
-## 快速上手 
 
+## 快速上手 
 ```
 // es2015+
 import Popups from "popupsjs";
-import "popupsjs/dist/index.css";
+import "popupsjs/dist/index.css";  // 注意关闭webpack css， exclude: /node_modules/
 
 new Popups(el,{config}) 
 ```
@@ -31,22 +32,20 @@ new Popups(el,{config})
 
 
 ## 函数 API
-
 ```
 API
   new Popups(
     contentString,    // 弹框内容 `<p>xxx</p>`
     {
       initShow: true,       // 初始化显示状态 默认显示弹窗
-      addClass: 'a',        // 增加class空间, bg & bomb_document
+      addClass: '',        // 增加class空间, bg & popups-document
       bg: true,             // 是否有背景
       closeHtml: false,     // 关闭按钮的内容
       timeOut: 0,           // 定时关闭
       append: document.body, // 插入位置
-      // 回调函数(this)=>
-      creat: ()=>{},       // 创建回调（未插入）
-      show: ()=>{},         // 显示回调
-      close: ()=>{},        // 关闭回调（从插入位置删除，但内存中存在）
+      created: function(){},    // 创建回调未插入 // (_this)=>{}
+      show: function(){},         // 显示回调
+      close: function(){},        // 关闭回调（从插入位置删除，但内存中存在）
     }
   )
 
@@ -60,18 +59,17 @@ API
 ```
 
 
-
 ## 弹框DOM结构：
 ```
 背景
-  <div class="bomb_bg a"></div>
+  <div class="popups-bg a"></div>
 
 弹框结构
-  <div class="bomb_document a">
-    <big class="bomb_closebtn"></big>
-    <div class="bomb_html">内容1</div>
+  <div class="popups-document a">
+    <big class="popups-closebtn"></big>
+    <div class="popups-html">内容1</div>
   </div>
 
 addClass 
-  同时追加 bomb_bg.a & bomb_document.a
+  同时追加 popups-bg.a & popups-document.a
 ```

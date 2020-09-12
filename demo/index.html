@@ -15,7 +15,7 @@
       width: 100%;
     }
 
-    .bomb_document.a{ border: 1px solid red;}
+    .popups-document.a{ border: 1px solid red;}
 
   </style>
 </head>
@@ -23,31 +23,25 @@
 <body>
   <div>
     <input type="button" value="show1" onclick="box.show()" />
+    <input type="button" value="更新内容" onclick="box.html('更新内容')" />
     <input type="button" value="close1" onclick="box.close()" />
-    <input type="button" value="更新内容" onclick="box.html('更新内容----')" />
   </div>
 
   <script type="text/javascript">
 
-  // console.log(Popups)
-  // new Popups('1111')
-
   var box = new Popups('内容', {
-    'initShow': false, 
-    'addClass': 'a', 
-    'bg': false,
-    'closeHtml': false, 
-    // 'timeOut': 2000, 
-    'creat': function (_this) {
-      console.log(_this)
+    initShow: true, // 初始化显示状态 默认显示弹窗
+    addClass: 'a', // 增加class空间, bg & popups-document
+    bg: false, // 是否有背景
+    closeHtml: false, // 关闭按钮的内容
+    timeOut: 0, // 定时关闭
+    append: document.body, // 插入位置
+    created: function(_this){ // 创建回调未插入 // (this)=>{}
+      console.log('created',this, _this) // this === _this === box
     }, 
-    'show': function (_this) {}, 
-    'close': function (_this) {
-      console.log(_this)
-    }, 
-    'append': document.body 
+    show: function(){},// 显示回调
+    close: function(){}, // 关闭回调（从插入位置删除，但内存中存在）
   })
-
 
   </script>
 </body>
