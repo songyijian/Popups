@@ -13,17 +13,16 @@ yarn add popupsjs     // 装载
 yarn upgrade popupsjs // 更新
 
 // Browserify https://github.com/songyijian/Popups.git
-<script src="../dist/popupsjs.iife.js"></script>
-<link rel="stylesheet" type="text/css" href="../dist/index.css"/>
+<script src="../dist/popupsjs.umd.js"></script>
+<link rel="stylesheet" type="text/css" href="../dist/index.css" />
 ```
-
 
 
 ## 快速上手 
 ```
 // es2015+
 import Popups from "popupsjs";
-import "popupsjs/dist/index.css";  // 注意：使用webpack关闭css exclude: /node_modules/
+import "popupsjs/dist/index.css"; // 注意：关闭webpack css {exclude: /node_modules/}
 
 new Popups(el,{config}) 
 ```
@@ -72,14 +71,13 @@ API
 
 ## 弹框DOM结构：
 ```
-背景
-  <div class="popups-bg a"></div>
-
 弹框结构
   <div class="popups-document a">
     <big class="popups-closebtn"></big>
     <div class="popups-body">内容1</div>
   </div>
+  <!-- 背景 -->
+  <div class="popups-bg a"></div>
 
 js节点
   this.nDocument  // .popups-document
