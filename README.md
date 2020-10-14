@@ -5,10 +5,12 @@
 ## 安装
 ```
 // npm 
-npm install popupsjs
+npm install popupsjs  // 装载
+npm update popupsjs   // 更新
 
 // yarn
-yarn add popupsjs
+yarn add popupsjs     // 装载
+yarn upgrade popupsjs // 更新
 
 // Browserify https://github.com/songyijian/Popups.git
 <script src="../dist/popupsjs.iife.js"></script>
