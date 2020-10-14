@@ -7,7 +7,8 @@ import replace from 'rollup-plugin-replace';
 const clear = require('rollup-plugin-clear');
 
 
-const host = 'localhost' //'10.131.134.84'
+const host = 'localhost'
+// const host = '10.131.134.84'
 const port = 7001
 const openPage = `http://${host}:${7001}/demo/index.html`
 

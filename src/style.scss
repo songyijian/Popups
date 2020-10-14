@@ -13,15 +13,15 @@
 }
 
 .popups-bg {
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .popups-document {
@@ -52,7 +52,7 @@
   background-color: red;
 }
 
-.popups-html {
+.popups-body {
   width: 100%;
   width: 100%;
   position: relative;

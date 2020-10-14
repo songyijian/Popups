@@ -2,9 +2,10 @@
 <html id="ne_wrap">
 
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>弹窗改进版本 </title>
-  <script src="../dist/popupsjs.iife.js"></script>
+  <script src="../dist/popupsjs.umd.js"></script>
   <link rel="stylesheet" type="text/css" href="../dist/index.css" />
   <!-- <script src="./src/BombBox.2.0.0.js"></script> -->
 
@@ -13,9 +14,17 @@
     body {
       height: 100%;
       width: 100%;
+      margin: 0;
+    }
+    body{
+      background-size: contain;
+      background: url('https://testn.sigmob.cn/rv/3/5ed3d480/72ea25dc822443b6b21e7c37148106d4.png');
     }
 
-    .popups-document.a{ border: 1px solid red;}
+    .popups-document.a{ 
+      backdrop-filter: blur(6px);
+      background-color:rgba(255,255,255,0.5);
+    }
 
   </style>
 </head>
@@ -25,10 +34,28 @@
     <input type="button" value="show1" onclick="box.show()" />
     <input type="button" value="更新内容" onclick="box.html('更新内容')" />
     <input type="button" value="close1" onclick="box.close()" />
+
+    <input type="button" value="动态创建" onclick="showpopups()" />
   </div>
 
   <script type="text/javascript">
 
+  // 全局api
+
+  Popups.showBefer=function(_this){
+    console.log('showBefer',_this)
+  }
+
+  Popups.closeBefer=function(_this){
+    console.log('closeBefer',_this)
+  }
+
+  Popups.createdBefer=function(_this){
+    console.log('createdBefer',_this)
+  }
+  
+
+  // 默认弹出api
   var box = new Popups('内容', {
     initShow: true, // 初始化显示状态 默认显示弹窗
     addClass: 'a', // 增加class空间, bg & popups-document
@@ -37,11 +64,26 @@
     timeOut: 0, // 定时关闭
     append: document.body, // 插入位置
     created: function(_this){ // 创建回调未插入 // (this)=>{}
-      console.log('created',this, _this) // this === _this === box
+      // console.log('created',this, _this) // this === _this === box
     }, 
     show: function(){},// 显示回调
     close: function(){}, // 关闭回调（从插入位置删除，但内存中存在）
   })
+
+
+
+  // 动态创建
+  function showpopups(){
+    var outT = 10000
+    new Popups('动态创建-'+ outT/1000 + 's后可自动关闭' , {
+      timeOut: 10000, // 定时关闭
+      addClass: 'b', // 增加class空间, bg & popups-document
+      created: function(_this){}, 
+      show: function(){},// 显示回调
+      close: function(){}, // 关闭回调（从插入位置删除，但内存中存在）
+    })
+  }
+
 
   </script>
 </body>

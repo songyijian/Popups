@@ -84,16 +84,6 @@ module.exports = [
     }],
     plugins
   },
-  {
-    input: resolveFile('./src/index.js'),
-    output: [{
-      file: resolveFile(`dist/${name}.iife.js`),
-      name: moduleName,
-      format: 'iife',
-      banner,
-    }],
-    plugins
-  },
   // {
   //   input: resolveFile('./src/index.js'),
   //   output: [{

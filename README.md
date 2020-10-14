@@ -42,8 +42,8 @@ API
       timeOut: 0,           // 定时关闭
       append: document.body, // 插入位置
       created: function(){},    // 创建回调未插入 // (_this)=>{}
-      show: function(){},         // 显示回调
-      close: function(){},        // 关闭回调（从插入位置删除，但内存中存在）
+      show: function(){},       // 显示回调
+      close: function(){},      // 关闭回调（从插入位置删除，但内存中存在）
     }
   )
 
@@ -53,7 +53,18 @@ API
     this.updateHtml('data', fn(This)) //修改内容区域（信息,回调）
 
   ATTR
-    this.live // 0=dom不存在 | 1=创建并插入了指定位置
+    this.live     // 0=dom不存在 | 1=创建并插入了指定位置
+
+    this.nDocument  // .popups-document
+    this.nClose     // .popups-closebtn
+    this.nBody      // .popups-body
+
+
+全局api (_this = 实例)
+  Popups.createdBefer = function(_this){}
+  Popups.showBefer = function(_this){}
+  Popups.closeBefer = function(_this){}
+
 ```
 
 
@@ -65,9 +76,15 @@ API
 弹框结构
   <div class="popups-document a">
     <big class="popups-closebtn"></big>
-    <div class="popups-html">内容1</div>
+    <div class="popups-body">内容1</div>
   </div>
+
+js节点
+  this.nDocument  // .popups-document
+  this.nClose     // .popups-closebtn
+  this.nBody      // .popups-body
 
 addClass 
   同时追加 popups-bg.a & popups-document.a
+
 ```
