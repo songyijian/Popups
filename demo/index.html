@@ -40,23 +40,24 @@
 
   <script type="text/javascript">
 
+  
   // 全局api
 
-  Popups.showBefer=function(_this){
-    console.log('showBefer',_this)
-  }
+  // Popups.showBefer=function(_this){
+  //   console.log('showBefer',_this.config.type)
+  // }
 
-  Popups.closeBefer=function(_this){
-    console.log('closeBefer',_this)
-  }
+  // Popups.closeBefer=function(_this){
+  //   console.log('closeBefer',_this.config.type)
+  // }
 
-  Popups.createdBefer=function(_this){
-    console.log('createdBefer',_this)
-  }
-  
+  // Popups.createdBefer=function(_this){
+  //   console.log('createdBefer',_this.config.type)
+  // }
 
   // 默认弹出api
   var box = new Popups('内容', {
+    type:'aaa',
     initShow: true, // 初始化显示状态 默认显示弹窗
     addClass: 'a', // 增加class空间, bg & popups-document
     bg: false, // 是否有背景
@@ -69,6 +70,8 @@
     show: function(){},// 显示回调
     close: function(){}, // 关闭回调（从插入位置删除，但内存中存在）
   })
+
+
 
 
 

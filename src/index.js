@@ -47,7 +47,7 @@ class Popups{
       that.close.call(that, that)
     },false);
 
-    typeof Popups.createdBefer === 'function' && Popups.createdBefer(this);
+    typeof Popups.createdBefer === 'function' && Popups.createdBefer.call(this,this);
     this.config.created.call(this,this);
     this.config.initShow && this.show.call(this,this)
   }
@@ -60,11 +60,11 @@ class Popups{
     this.config.bg && this.config.append.appendChild(this.bombBg);
     if (this.config.timeOut > 0){
       setTimeout(function (params) {
-        that.close.call(that, this)
+        that.close.call(that, that)
       }, this.config.timeOut);
     }
 
-    typeof Popups.showBefer === 'function' && Popups.showBefer(this);
+    typeof Popups.showBefer === 'function' && Popups.showBefer.call(this,this);
     this.config.show.call(this,this)
     return this;
   }
@@ -74,7 +74,7 @@ class Popups{
       this.live = 0;
       this.config.append.removeChild(this.nDocument);
       this.config.bg && this.config.append.removeChild(this.bombBg);
-      typeof Popups.closeBefer === 'function' && Popups.closeBefer(this);
+      typeof Popups.closeBefer === 'function' && Popups.closeBefer.call(this,this);
       this.config.close.call(this,this)
     }
     return this;
@@ -92,10 +92,12 @@ class Popups{
   }
 }
 
-
 Popups.createdBefer = function(){}
 Popups.showBefer = function(){}
 Popups.closeBefer = function(){}
+// Popups.createdBefer = function(){ console.log(this)}
+// Popups.showBefer = function(){console.log(this)}
+// Popups.closeBefer = function(){console.log(this)}
 
 
 export default Popups
